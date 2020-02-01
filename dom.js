@@ -18,9 +18,12 @@
     // you will need to use addEventListener
 
     // add span holding description
-
+    var todoNodeSpan = document.createElement("span");
+    todoNodeSpan.textContent = todo.description;
+    todoNode.appendChild(todoNodeSpan);
     // this adds the delete button
     var deleteButtonNode = document.createElement("button");
+    deleteButtonNode.textContent = "Delete";
     deleteButtonNode.addEventListener("click", function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
@@ -28,7 +31,16 @@
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
-
+    var markNode = document.createElement("input");
+    markNode.setAttribute("type", "checkbox");
+    if (todo.done) {
+      markNode.setAttribute("checked");
+    }
+    markNode.addEventListener("click", function(event) {
+      var newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+    todoNode.appendChild(markNode);
     // add classes for css
 
     return todoNode;
@@ -41,11 +53,13 @@
       // what does event.preventDefault do?
       // what is inside event.target?
 
-      var description = "?"; // event.target ....
+      var description = document.querySelector('input[name = "description"]')
+        .value; // event.target ....
 
       // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
+      var newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
+      event.preventDefault();
     });
   }
 
