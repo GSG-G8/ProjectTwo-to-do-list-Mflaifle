@@ -1,0 +1,23 @@
+{
+  "name": "to-do-mf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dom.js",
+  "scripts": {
+    "test": "jest --coverage --watch --detectOpenHandles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G8/ProjectTwo-to-do-list-Mflaifle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G8/ProjectTwo-to-do-list-Mflaifle/issues"
+  },
+  "homepage": "https://github.com/GSG-G8/ProjectTwo-to-do-list-Mflaifle#readme",
+  "dependencies": {
+    "jest": "^25.1.0",
+    "tape": "^4.13.0"
+  }
+}
