@@ -20,7 +20,7 @@
     // add span holding description
     var todoNodeSpan = document.createElement("span");
     todoNodeSpan.textContent = todo.description;
-    todoNode.appendChild(todoNodeSpan);
+
     // this adds the delete button
     var deleteButtonNode = document.createElement("button");
     deleteButtonNode.textContent = "Delete";
@@ -28,19 +28,21 @@
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
-    todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
     var markNode = document.createElement("input");
     markNode.setAttribute("type", "checkbox");
     if (todo.done) {
-      markNode.setAttribute("checked");
+      markNode.checked = true;
+      markNode.setAttribute("style", "text-decoration: line-through;");
     }
     markNode.addEventListener("click", function(event) {
       var newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
     });
     todoNode.appendChild(markNode);
+    todoNode.appendChild(todoNodeSpan);
+    todoNode.appendChild(deleteButtonNode);
     // add classes for css
 
     return todoNode;
